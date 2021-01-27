@@ -4,10 +4,10 @@ import img from "./../assets/Me.jpg";
 import Sidebar from "./Sidebar";
 import { UserContext } from "../components/contexts/UserContext";
 import { Link } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import Loading from "./Loading";
 import { FaUniversity } from "react-icons/fa";
-import me from "../assets/Me.jpg";
+// import me from "../assets/Me.jpg";
 
 function Explore() {
   const { userData } = useContext(UserContext);
