@@ -7,7 +7,7 @@ export const UserContext = createContext();
 const UserContextProvider = (props) => {
   const [userData, setUserData] = useState([]);
   const [isLoggedIn, setisLoggedIn] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [setIsError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();

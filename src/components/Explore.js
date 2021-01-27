@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "./Loading";
 import { FaUniversity } from "react-icons/fa";
+import me from "../assets/Me.jpg";
 
 function Explore() {
   const { userData } = useContext(UserContext);
@@ -94,13 +95,11 @@ function Explore() {
               <DestinationCard
                 location="Universities"
                 city="Explore your universities"
+                flag={<FaUniversity />}
               />
             </Link>
-            <DestinationCard
-              location="Colleges"
-              city="Find top colleges"
-              image={FaUniversity}
-            />
+            <DestinationCard location="Colleges" city="Find top colleges" />
+
             <DestinationCard location="First Friend" city="Help on arrival" />
             <DestinationCard location="Airport Pickup" city="Book a ride" />
             <DestinationCard location="Food" city="Satisfy your taste buds" />

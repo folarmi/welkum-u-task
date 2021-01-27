@@ -5,7 +5,7 @@ function Card(props, myColor) {
     <div className="card" style={{ backgroundColor: `${myColor}` }}>
       <div className="card_info">
         <h3>{props.title}</h3>
-        <p>{props.details}</p>
+        <small>{props.details}</small>
       </div>
       <div className="card__img">
         <img src={props.image} alt="" />

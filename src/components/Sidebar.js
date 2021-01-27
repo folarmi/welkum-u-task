@@ -1,5 +1,5 @@
 import { useState } from "react";
-import me from "../assets/Me.jpg";
+// import me from "../assets/Me.jpg";
 import { BiMenuAltRight } from "react-icons/bi";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -19,7 +19,7 @@ function Sidebar(props) {
     <div className="sidebar">
       <section className="sidebar__flex">
         <div className="user__info">
-          <img src={props.image} />
+          <img src={props.image} alt="userimage" />
           <p>Hey {props.username}</p>
         </div>
         <BiMenuAltRight className="sidebar__menuicon" onClick={toggleMenu} />
