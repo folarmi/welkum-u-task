@@ -50,7 +50,7 @@ function Login(props) {
           />
           <br />
           <small>
-            <a href="#"> Forgot password?</a>
+            <button> Forgot password?</button>
           </small>
           <br />
           <button type="submit">Sign In</button>
@@ -58,7 +58,7 @@ function Login(props) {
             Don't have an account?
             <span>
               <small>
-                <a href="#">Sign up now</a>
+                <button>Sign up now</button>
               </small>
             </span>
           </p>
