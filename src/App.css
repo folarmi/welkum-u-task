@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.login__header {
+  background-color: #f4a42d;
+  padding: 3rem;
+  height: 50vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login__header h1 {
+  color: #ffffff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login__form {
+  padding: 3rem;
+}
+
+label {
+  margin-bottom: 1rem;
+}
+
+.login__form input {
+  margin-bottom: 1rem;
+  width: 80%;
+  height: 2rem;
+  border-radius: 15px;
+  border: 1px solid #b2beb5;
+  background: none;
+  padding: 0.4rem;
+}
+
+.login__form button {
+  outline: none;
+  padding: 1rem;
+  color: #ffffff;
+  border: none;
+  background-color: #f4a42d;
+  width: 80%;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: #f4a42d;
+}
+
+/* Sidebar styling */
+.sidebar {
+  margin: 2rem;
+}
+
+.sidebar__flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar img {
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+  object-fit: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.sidebar__menuicon {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.sidebar__menuitems {
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform: translate3d(-100vw, 0, 0);
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Card Styling */
+.card {
+  display: flex;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 15px;
+}
+
+.cards {
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  .login {
+    display: flex;
   }
-  to {
-    transform: rotate(360deg);
+
+  .login__header {
+    max-width: 300px;
+    height: 100vw;
+  }
+
+  .login__form {
+    margin: 2rem 0 15rem 15rem;
+  }
+
+  .login__form input {
+    width: 100%;
+  }
+
+  .login__form button {
+    width: 100%;
+  }
+
+  .cards {
+    display: flex;
+  }
+
+  .sidebar__menuicon {
+    display: none;
   }
 }
