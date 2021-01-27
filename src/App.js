@@ -3,11 +3,11 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import { AuthContext } from "./components/contexts/Auth";
 import Home from "./components/Home";
-import Landing from "./components/Landing";
 import Login from "./components/Login";
 import PrivateRoute from "./PrivateRoute";
 import UserContextProvider from "../src/components/contexts/UserContext";
 import Explore from "./components/Explore";
+import Universities from "./components/Universities";
 
 function App(props) {
   const existingTokens = JSON.parse(localStorage.getItem("tokens"));
@@ -27,6 +27,11 @@ function App(props) {
               <Route exact path="/" exact component={Login} />
               <PrivateRoute exact path="/home" component={Home} />
               <PrivateRoute exact path="/explore" component={Explore} />
+              <PrivateRoute
+                exact
+                path="/universities"
+                component={Universities}
+              />
             </>
           </Switch>
         </Router>

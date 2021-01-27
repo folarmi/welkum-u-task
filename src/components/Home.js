@@ -4,10 +4,11 @@ import Sidebar from "./Sidebar";
 import { RiCoinsLine } from "react-icons/ri";
 import { UserContext } from "../components/contexts/UserContext";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true);
-  const { userData, postLogin } = useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
   useEffect(() => {
     const myTimeout = setTimeout(() => {
@@ -19,21 +20,26 @@ function Home() {
   }, []);
 
   if (isLoading) {
-    return <p>Loading....</p>;
+    return <Loading />;
   }
 
   return (
-    <div>
+    <div className="home">
       <Sidebar
         username={userData.userProfile.profile.firstname}
         image={userData.userProfile.profile.picture}
       />
 
       <div className="cards">
+        <div className="bar">
+          <p>sidebar</p>
+        </div>
+
         <Card
           title="Exchange Currency"
           details="Exchange money from one local currency to another"
           image={<RiCoinsLine />}
+          myColor="yellow"
         />
         <Card
           title="Get an Accomodation"

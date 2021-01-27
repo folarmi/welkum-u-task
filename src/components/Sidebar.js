@@ -18,8 +18,10 @@ function Sidebar(props) {
   return (
     <div className="sidebar">
       <section className="sidebar__flex">
-        <img src={props.image} />
-        <p>Hey {props.username}</p>
+        <div className="user__info">
+          <img src={props.image} />
+          <p>Hey {props.username}</p>
+        </div>
         <BiMenuAltRight className="sidebar__menuicon" onClick={toggleMenu} />
       </section>
 

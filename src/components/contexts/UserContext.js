@@ -16,7 +16,7 @@ const UserContextProvider = (props) => {
     e.preventDefault();
     axios
       .post(
-        "https://cors-anywhere.herokuapp.com/https://api.welkom-u.ca/WelkomU_Test/api/ProfileManagement/LoginUser",
+        "https://api.welkom-u.ca/WelkomU_Test/api/ProfileManagement/LoginUser",
         {
           email,
           password,

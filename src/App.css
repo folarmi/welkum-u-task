@@ -3,6 +3,12 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  background-color: #f3f3f3;
+}
+
+.home {
+  width: 100vw;
+  height: 100vh;
 }
 
 .login__header {
@@ -31,6 +37,7 @@ label {
   border: 1px solid #b2beb5;
   background: none;
   padding: 0.4rem;
+  outline: none;
 }
 
 .login__form button {
@@ -42,17 +49,22 @@ label {
   width: 80%;
   margin: 1rem 0;
   text-align: left;
+  cursor: pointer;
+}
+
+.login__form a {
+  color: #f4a42d;
 }
 
 a {
   text-decoration: none;
-  color: #f4a42d;
+  color: #000000;
 }
 
 /* Sidebar styling */
-.sidebar {
+/* .sidebar {
   margin: 2rem;
-}
+} */
 
 .sidebar__flex {
   display: flex;
@@ -78,6 +90,31 @@ a {
   transform: translate3d(-100vw, 0, 0);
   width: 100vw;
   height: 100vh;
+  cursor: pointer;
+}
+
+.loading__image {
+  margin-left: 25rem;
+  margin-top: 5rem;
+}
+
+.user__info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.change__button {
+  margin-top: 2rem;
+}
+
+.change__button button {
+  outline: none;
+  padding: 0.7rem;
+  background-color: #ffffff;
+  color: #244351;
+  background: none;
+  border: none;
+  box-shadow: 1px 1px 1px #ccc;
 }
 
 /* Card Styling */
@@ -85,12 +122,60 @@ a {
   display: flex;
   background-color: #f4f4f4;
   padding: 1rem;
-  margin: 2rem;
-  border-radius: 15px;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px 6px #ccc;
 }
 
 .cards {
   cursor: pointer;
+}
+
+.card__one {
+  background-color: yellow;
+}
+
+/* Explore styling */
+.explore {
+  padding: 1rem;
+  background-color: #ffffff;
+}
+
+.explore__gallery img {
+  height: 15rem;
+  width: 15rem;
+  margin: 0.5rem 3rem;
+}
+
+.explore__immigrate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.destination__card {
+  border-radius: 3px;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #ffffff;
+  cursor: pointer;
+  border-radius: 3px;
+  box-shadow: 3px 3px 3px #ccc;
+}
+
+.destination__card p {
+  color: #244351;
+  font-weight: bold;
+}
+small {
+  color: #b2bdd2;
+}
+
+.destination__info {
+  display: flex;
+}
+
+.active {
+  background-color: #0000ff;
 }
 
 @media (min-width: 1200px) {
@@ -121,5 +206,33 @@ a {
 
   .sidebar__menuicon {
     display: none;
+  }
+
+  .explorers {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .explore__gallery {
+    display: flex;
+    object-fit: cover;
+  }
+
+  .explore__gallery img {
+    margin-left: 3rem;
+  }
+
+  .header h3 {
+    padding-left: 5rem;
+    font-weight: bold;
+  }
+
+  .explorers {
+    margin: 2rem 0 0 5rem;
+  }
+
+  .destination__card {
+    width: 20rem;
+    height: 5rem;
   }
 }

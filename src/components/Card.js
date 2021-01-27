@@ -1,8 +1,8 @@
 import React from "react";
 
-function Card(props) {
+function Card(props, myColor) {
   return (
-    <div className="card">
+    <div className="card" style={{ backgroundColor: `${myColor}` }}>
       <div className="card_info">
         <h3>{props.title}</h3>
         <p>{props.details}</p>
