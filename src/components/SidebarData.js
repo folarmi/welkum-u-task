@@ -12,13 +12,13 @@ export const SidebarData = [
   },
   {
     title: "Accomodation Interests",
-    path: "/interests",
+    path: "/",
     icon: <AiIcons.AiOutlineHeart />,
     cName: "nav-text",
   },
   {
     title: "Transactions",
-    path: "/transactions",
+    path: "/",
     icon: <FcIcons.FcSafe />,
     cName: "nav-text",
   },
@@ -30,19 +30,19 @@ export const SidebarData = [
   },
   {
     title: "Settings",
-    path: "/settings",
+    path: "/",
     icon: <FiIcons.FiSettings />,
     cName: "nav-text",
   },
   {
     title: "Notifications",
-    path: "/notifications",
+    path: "/",
     icon: <BiIcons.BiNotification />,
     cName: "nav-text",
   },
   {
     title: "Logout",
-    path: "/logout",
+    path: "/",
     icon: <BiIcons.BiLogOutCircle />,
     cName: "nav-text",
   },

@@ -29,8 +29,6 @@ function Login(props) {
           <br />
           <input
             type="email"
-            name=""
-            id=""
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -41,8 +39,6 @@ function Login(props) {
           <br />
           <input
             type="password"
-            name=""
-            id=""
             value={password}
             onChange={(e) => {
               setPassword(e.target.value);

@@ -7,7 +7,7 @@ export const UserContext = createContext();
 const UserContextProvider = (props) => {
   const [userData, setUserData] = useState([]);
   const [isLoggedIn, setisLoggedIn] = useState(false);
-  const [setIsError] = useState(false);
+  // const [setIsError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
@@ -23,17 +23,14 @@ const UserContextProvider = (props) => {
         }
       )
       .then((result) => {
-        if (result.status === 200) {
-          setAuthTokens(result.data.result.authToken);
-          setisLoggedIn(true);
-          setUserData(result.data.result);
-        } else {
-          setIsError(true);
-        }
-      })
-      .catch((e) => {
-        setIsError(true);
+        setAuthTokens(result.data.result.authToken);
+        setisLoggedIn(true);
+        setUserData(result.data.result);
+        // setIsError(true);
       });
+    // .catch((e) => {
+    //   setIsError(true);
+    // });
   };
 
   return (
