@@ -50,15 +50,17 @@ function Login(props) {
           />
           <br />
           <small>
-            <button> Forgot password?</button>
+            <button className="button__link"> Forgot password?</button>
           </small>
           <br />
-          <button type="submit">Sign In</button>
+          <button type="submit" className="signIn__button">
+            Sign In
+          </button>
           <p>
             Don't have an account?
             <span>
               <small>
-                <button>Sign up now</button>
+                <button className="button__link">Sign up now</button>
               </small>
             </span>
           </p>

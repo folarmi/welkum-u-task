@@ -23,7 +23,7 @@ function App(props) {
       <UserContextProvider>
         <Router>
           <Switch>
-            <>
+            <div className="app">
               <Route exact path="/" component={Login} />
               <PrivateRoute exact path="/home" component={Home} />
               <PrivateRoute exact path="/explore" component={Explore} />
@@ -32,7 +32,7 @@ function App(props) {
                 path="/universities"
                 component={Universities}
               />
-            </>
+            </div>
           </Switch>
         </Router>
       </UserContextProvider>
