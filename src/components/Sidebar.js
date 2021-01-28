@@ -1,75 +1,91 @@
+// import { useState } from "react";
+// import * as FaIcons from "react-icons/fa";
+// import * as AiIcons from "react-icons/ai";
+// import { Link } from "react-router-dom";
+// import { SidebarData } from "./SidebarData";
+
+// function Sidebar(props) {
+//   const [sidebar, setSidebar] = useState(false);
+
+//   const showSidebar = () => setSidebar(!sidebar);
+//   return (
+//     <>
+//       <div className="navbar">
+//         <Link to="#">
+//           <FaIcons.FaBars onClick={showSidebar} className="menu" />
+//         </Link>
+//       </div>
+//       <nav className={sidebar ? "nav__menu active" : "nav-menu"}>
+//         <ul className="nav__menu__items" onClick={showSidebar}>
+//           <li className="navbar__toggle">
+//             <Link to="#" className="menu__bars">
+//               <AiIcons.AiOutlineClose />
+//             </Link>
+//           </li>
+//           <div className="user__info">
+//             <img src={props.image} alt="userimage" />
+//             <p>Hey {props.username}</p>
+//           </div>
+
+//           {SidebarData.map((item, index) => {
+//             return (
+//               <li key={index} className={item.cName}>
+//                 <Link to={item.path}>
+//                   {item.icon}
+//                   <span>{item.title}</span>
+//                 </Link>
+//               </li>
+//             );
+//           })}
+//         </ul>
+//       </nav>
+//     </>
+//   );
+// }
+// export default Sidebar;
+
 import { useState } from "react";
-// import me from "../assets/Me.jpg";
-import { BiMenuAltRight } from "react-icons/bi";
-import { FaHome } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
-import { FcSafe } from "react-icons/fc";
-import { BiUserCircle } from "react-icons/bi";
-import { FiSettings } from "react-icons/fi";
-import { BiNotification } from "react-icons/bi";
-import { BiLogOutCircle } from "react-icons/bi";
+import * as FaIcons from "react-icons/fa";
+import * as AiIcons from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { SidebarData } from "./SidebarData";
 
 function Sidebar(props) {
-  const [visible, setVisible] = useState(true);
-  const toggleMenu = () => {
-    setVisible(!visible);
-  };
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <div className="sidebar">
-      <section className="sidebar__flex">
-        <div className="user__info">
-          <img src={props.image} alt="userimage" />
-          <p>Hey {props.username}</p>
-        </div>
-        <BiMenuAltRight className="sidebar__menuicon" onClick={toggleMenu} />
-      </section>
-
-      <div className={visible ? "sidebar__menuitems" : null}>
-        <p>
-          <span>
-            <FaHome />
-          </span>
-          My Listings
-        </p>
-        <p>
-          <span>
-            <AiOutlineHeart />
-          </span>
-          Accomodation Interests
-        </p>
-        <p>
-          <span>
-            <FcSafe />
-          </span>
-          Transactions
-        </p>
-        <p>
-          <span>
-            <BiUserCircle />
-          </span>
-          Profile
-        </p>
-        <p>
-          <span>
-            <FiSettings />
-          </span>
-          Settings
-        </p>
-        <p>
-          <span>
-            <BiNotification />
-          </span>
-          Notifications
-        </p>
-        <p>
-          <span>
-            <BiLogOutCircle />
-          </span>
-          Logout
-        </p>
+    <>
+      <div className="navbar">
+        <Link to="#" className="menu__bars">
+          <FaIcons.FaBars onClick={showSidebar} className="menu" />
+        </Link>
       </div>
-    </div>
+      <nav className={sidebar ? "nav__menu active" : "nav__menu"}>
+        <ul className="nav__menu__items" onClick={showSidebar}>
+          <li className="navbar__toggle">
+            <Link to="#" className="menu-bars">
+              <AiIcons.AiOutlineClose className="menu" />
+            </Link>
+          </li>
+          <div className="user__info">
+            <img src={props.image} alt="userimage" />
+            <h2>Hey {props.username}</h2>
+          </div>
+          {SidebarData.map((item, index) => {
+            return (
+              <li key={index} className={item.cName}>
+                <Link to={item.path}>
+                  {item.icon}
+                  <span>{item.title}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </>
   );
 }
 

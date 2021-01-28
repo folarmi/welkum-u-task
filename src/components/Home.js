@@ -31,10 +31,6 @@ function Home() {
       />
 
       <div className="cards">
-        <div className="bar">
-          <p>sidebar</p>
-        </div>
-
         <Card
           title="Exchange Currency"
           details="Exchange money from one local currency to another"

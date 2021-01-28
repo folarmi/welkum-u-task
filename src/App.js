@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import UserContextProvider from "../src/components/contexts/UserContext";
 import Explore from "./components/Explore";
 import Universities from "./components/Universities";
+import Profile from "./components/Profile";
 
 function App(props) {
   const existingTokens = JSON.parse(localStorage.getItem("tokens"));
@@ -32,6 +33,7 @@ function App(props) {
                 path="/universities"
                 component={Universities}
               />
+              <PrivateRoute exact path="/profile" component={Profile} />
             </div>
           </Switch>
         </Router>
