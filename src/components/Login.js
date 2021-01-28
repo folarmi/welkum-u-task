@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../components/contexts/UserContext";
 import { Redirect } from "react-router-dom";
+import Loading from "./Loading";
 
 function Login(props) {
   const {

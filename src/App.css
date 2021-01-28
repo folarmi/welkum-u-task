@@ -260,9 +260,9 @@ small {
     width: 100%;
   }
 
-  /* .login__form button {
+  .signIn__button {
     width: 100%;
-  } */
+  }
 
   .cards {
     display: flex;
