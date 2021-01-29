@@ -4,14 +4,17 @@ import { Redirect } from "react-router-dom";
 import Loading from "./Loading";
 
 function Login(props) {
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    isLoggedIn,
-    postLogin,
-  } = useContext(UserContext);
+  const [loginDetails, setLoginDetails] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setLoginDetails({ ...loginDetails, [name]: value });
+  };
+
+  const { isLoggedIn, postLogin } = useContext(UserContext);
 
   if (isLoggedIn) {
     return <Redirect to="/home" />;
@@ -25,25 +28,28 @@ function Login(props) {
       </header>
 
       <section className="login__form">
-        <form onSubmit={postLogin}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            postLogin(loginDetails);
+          }}
+        >
           <label htmlFor="email">Email Address</label>
           <br />
           <input
             type="email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            name="email"
+            value={loginDetails.email}
+            onChange={handleChange}
           />
           <br />
           <label htmlFor="password">Password</label>
           <br />
           <input
             type="password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            value={loginDetails.password}
+            name="password"
+            onChange={handleChange}
           />
           <br />
           <small>

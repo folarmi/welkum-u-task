@@ -8,21 +8,16 @@ const UserContextProvider = (props) => {
   const [userData, setUserData] = useState([]);
   const [isLoggedIn, setisLoggedIn] = useState(false);
   // const [setIsError] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
 
-  const postLogin = (e) => {
-    e.preventDefault();
+  const postLogin = (loginDetails) => {
     axios
       .post(
         "https://api.welkom-u.ca/WelkomU_Test/api/ProfileManagement/LoginUser",
-        {
-          email,
-          password,
-        }
+        loginDetails
       )
       .then((result) => {
+        console.log(result);
         setAuthTokens(result.data.result.authToken);
         setisLoggedIn(true);
         setUserData(result.data.result);
@@ -36,10 +31,6 @@ const UserContextProvider = (props) => {
   return (
     <UserContext.Provider
       value={{
-        email,
-        setEmail,
-        password,
-        setPassword,
         isLoggedIn,
         postLogin,
         userData,
