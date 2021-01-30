@@ -6,6 +6,7 @@ import Sidebar from "./Sidebar";
 function Universities() {
   const { userData } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const myTimeout = setTimeout(() => {
       setIsLoading(false);

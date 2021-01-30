@@ -1,9 +1,12 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../components/contexts/UserContext";
 import { Redirect } from "react-router-dom";
-import Loading from "./Loading";
 
 function Login(props) {
+  const [userData, setUserData] = useState(
+    JSON.parse(localStorage.getItem("userData"))
+  );
+
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
@@ -14,9 +17,9 @@ function Login(props) {
     setLoginDetails({ ...loginDetails, [name]: value });
   };
 
-  const { isLoggedIn, postLogin } = useContext(UserContext);
+  const { postLogin } = useContext(UserContext);
 
-  if (isLoggedIn) {
+  if (userData?.authToken) {
     return <Redirect to="/home" />;
   }
 

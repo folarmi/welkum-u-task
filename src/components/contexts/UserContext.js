@@ -1,14 +1,14 @@
 import { createContext, useState } from "react";
 import axios from "axios";
-import { useAuth } from "./Auth";
+import { useHistory } from "react-router-dom";
 
 export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
-  const [userData, setUserData] = useState([]);
-  const [isLoggedIn, setisLoggedIn] = useState(false);
-  // const [setIsError] = useState(false);
-  const { setAuthTokens } = useAuth();
+  const [userData, setUserData] = useState(
+    JSON.parse(localStorage.getItem("userData"))
+  );
+  const history = useHistory();
 
   const postLogin = (loginDetails) => {
     axios
@@ -17,21 +17,15 @@ const UserContextProvider = (props) => {
         loginDetails
       )
       .then((result) => {
-        console.log(result);
-        setAuthTokens(result.data.result.authToken);
-        setisLoggedIn(true);
         setUserData(result.data.result);
-        // setIsError(true);
+        localStorage.setItem("userData", JSON.stringify(result.data.result));
+        history.push("/home");
       });
-    // .catch((e) => {
-    //   setIsError(true);
-    // });
   };
 
   return (
     <UserContext.Provider
       value={{
-        isLoggedIn,
         postLogin,
         userData,
       }}
