@@ -1,23 +1,37 @@
 import { useContext, useState } from "react";
+import axios from "axios";
 import { UserContext } from "../components/contexts/UserContext";
 import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function Login(props) {
-  const [userData, setUserData] = useState(
-    JSON.parse(localStorage.getItem("userData"))
-  );
-
+  // const [userData, setUserData] = useState(
+  //   JSON.parse(localStorage.getItem("userData"))
+  // );
+  const history = useHistory();
+  const { userData, setUserData } = useContext(UserContext);
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
   });
 
+  const postLogin = (loginDetails) => {
+    axios
+      .post(
+        "https://api.welkom-u.ca/WelkomU_Test/api/ProfileManagement/LoginUser",
+        loginDetails
+      )
+      .then((result) => {
+        setUserData(result.data.result);
+        localStorage.setItem("userData", JSON.stringify(result.data.result));
+        history.push("/home");
+      });
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLoginDetails({ ...loginDetails, [name]: value });
   };
-
-  const { postLogin } = useContext(UserContext);
 
   if (userData?.authToken) {
     return <Redirect to="/home" />;

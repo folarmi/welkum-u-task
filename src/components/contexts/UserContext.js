@@ -10,23 +10,10 @@ const UserContextProvider = (props) => {
   );
   const history = useHistory();
 
-  const postLogin = (loginDetails) => {
-    axios
-      .post(
-        "https://api.welkom-u.ca/WelkomU_Test/api/ProfileManagement/LoginUser",
-        loginDetails
-      )
-      .then((result) => {
-        setUserData(result.data.result);
-        localStorage.setItem("userData", JSON.stringify(result.data.result));
-        history.push("/home");
-      });
-  };
-
   return (
     <UserContext.Provider
       value={{
-        postLogin,
+        setUserData,
         userData,
       }}
     >
