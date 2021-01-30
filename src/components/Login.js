@@ -1,19 +1,19 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import axios from "axios";
 import { UserContext } from "../components/contexts/UserContext";
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 function Login(props) {
-  // const [userData, setUserData] = useState(
-  //   JSON.parse(localStorage.getItem("userData"))
-  // );
   const history = useHistory();
   const { userData, setUserData } = useContext(UserContext);
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (userData?.authToken) window.location.replace("/home");
+  }, [userData?.authToken, history]);
 
   const postLogin = (loginDetails) => {
     axios
@@ -32,10 +32,6 @@ function Login(props) {
     const { name, value } = e.target;
     setLoginDetails({ ...loginDetails, [name]: value });
   };
-
-  if (userData?.authToken) {
-    return <Redirect to="/home" />;
-  }
 
   return (
     <div className="login">
